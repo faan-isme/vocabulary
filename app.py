@@ -71,16 +71,16 @@ def detail(keyword):
     )
 @app.route('/error/<definitions>')
 def recive(definitions):
-    g =definitions.strip('[').strip(']')
-    if not g:
+    define =definitions.strip('[').strip(']')
+    if not define:
         print(1)
         keyword=request.args.get('keyword')
-        return render_template('menu/error.html',keyword=keyword, g=g)
+        return render_template('menu/error.html',keyword=keyword, define=define)
     else:
         data_list = [item.strip().strip("'").strip("['").strip("']") for item in definitions.split(',')]
         l= data_list
         keyword=request.args.get('keyword')
-        return render_template('menu/error.html',keyword=keyword, l=l,g=g)
+        return render_template('menu/error.html',keyword=keyword, l=l,define=define)
 
 
 
